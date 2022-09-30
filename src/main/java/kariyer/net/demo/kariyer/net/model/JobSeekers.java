@@ -4,7 +4,6 @@ package kariyer.net.demo.kariyer.net.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -12,25 +11,25 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 @Table(name="job_seekers")
-
-public class Job_Seekers extends User{
+@Entity
+public class JobSeekers extends User{
 	
-	@Column(name="first_name",nullable = false)
+	@Column(name="first_name")
 	private String firstName;
 	
-	@Column(name="last_name",nullable = false)
+	@Column(name="last_name")
 	private String lastName;
 	
 	
-	@Column(name="nationality_id",nullable = false,unique=true)
-	private String naitonalityId;
+	@Column(name="nationality_id",unique=true)
+	private String nationalId;
 
 
-	private Job_Seekers(String firstName, String lastName, String naitonalityId) {
-		super();
+	public JobSeekers( String email, String password, String repassword,String firstName, String lastName, String nationalId) {
+		super(email,password,repassword);
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.naitonalityId = naitonalityId;
+		this.nationalId = nationalId;
 	}
 	
 	

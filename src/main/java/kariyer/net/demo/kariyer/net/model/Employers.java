@@ -15,16 +15,16 @@ import lombok.NoArgsConstructor;
 @Table(name="employers")
 public class Employers extends User{
 	
-	@Column(name="company_name",nullable = false)
+	@Column(name="company_name")
 	private String companyName;
 	
-	@Column(name="web_site",nullable = false)
+	@Column(name="web_site")
 	private String webSite;
 	
-	@Column(name="phone_number",nullable = false)
+	@Column(name="phone_number")
 	private String phoneNumber;
 
-	private Employers(String companyName, String webSite, String phoneNumber) {
+	public Employers(String companyName, String webSite, String phoneNumber) {
 		super();
 		this.companyName = companyName;
 		this.webSite = webSite;

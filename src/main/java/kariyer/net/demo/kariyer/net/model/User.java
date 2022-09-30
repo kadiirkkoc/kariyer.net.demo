@@ -23,23 +23,23 @@ public class User {
 	@Id
 	private Long id;
 	
-	@Column(name="e_mail",nullable = false,unique=true)
+	@Column(name="e_mail",unique=true)
 	private String email;
 	
-	@Column(name="password",nullable = false)
+	@Column(name="password",nullable=false)
 	private String password;
 	
-	@Column(name="re_password",nullable = false)
-	private String repassword;
+	@Column(name="re_password")
+	private String rePassword;
 	
 	@ManyToOne
-	@JoinColumn(name="job_position_id",nullable=false)
+	@JoinColumn(name="job_position_id")
 	private JobPosition job_position;
 
-	private User(String email, String password, String repassword) {
+	public User(String email, String password, String rePassword) {
 		this.email = email;
 		this.password = password;
-		this.repassword = repassword;
+		this.rePassword = rePassword;
 	}
 	
 	

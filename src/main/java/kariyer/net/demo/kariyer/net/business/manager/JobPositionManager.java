@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kariyer.net.demo.kariyer.net.DTO.JobPositionCreateDTO;
 import kariyer.net.demo.kariyer.net.DTO.JobPositionViewDTO;
 import kariyer.net.demo.kariyer.net.business.service.JobPositionService;
+import kariyer.net.demo.kariyer.net.model.JobPosition;
 import kariyer.net.demo.kariyer.net.repository.JobPositionRepository;
 
 @Service
@@ -27,9 +28,10 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	@Override
-	public JobPositionCreateDTO createJobPosition(JobPosition jobPosition) {
-		
-		return null;
+	public JobPositionViewDTO createJobPosition(JobPositionCreateDTO jobPositionCreateDTO) {
+		JobPosition jobPosition = new JobPosition(jobPositionCreateDTO.getPosition_Name());
+		jpRepository.save(jobPosition);
+		return JobPositionViewDTO.of(jobPosition);
 	}
 
 
